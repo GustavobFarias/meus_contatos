@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.main`
   padding: 0 40px;
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
 `
 
 export const Resultado = styled.p`
