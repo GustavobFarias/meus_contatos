@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux'
 
-import Tarefa from '../../components/Tarefa'
+import Contatos from '../../components/Contatos'
 import { MainContainer, Titulo } from '../../styles'
 
 import { RootReducer } from '../../store'
 
 const ListaDetarefas = () => {
-  const { itens } = useSelector((state: RootReducer) => state.tarefas)
+  const { itens } = useSelector((state: RootReducer) => state.contatos)
   const { termo, criterio, valor } = useSelector(
     (state: RootReducer) => state.filtro
   )
@@ -42,9 +42,9 @@ const ListaDetarefas = () => {
       termo !== undefined && termo.length > 0 ? `e "${termo}"` : ''
 
     if (criterio === 'todas') {
-      mensagem = `${quantidade} tarefa(s) encontrada(s) como: todas ${complementacao}`
+      mensagem = `${quantidade} Contato(s) encontrado(s) como: todas ${complementacao}`
     } else {
-      mensagem = `${quantidade} tarefa(s) encontrada(s) como: "${`${criterio}=${valor}`}" ${complementacao}`
+      mensagem = `${quantidade} Contato(s) encontrado(s) como: "${`${criterio}=${valor}`}" ${complementacao}`
     }
 
     return mensagem
@@ -59,9 +59,10 @@ const ListaDetarefas = () => {
       <ul>
         {tarefas.map((t) => (
           <li key={t.titulo}>
-            <Tarefa
+            <Contatos
               id={t.id}
-              descricao={t.descricao}
+              telefone={t.telefone}
+              email={t.email}
               titulo={t.titulo}
               status={t.status}
               prioridade={t.prioridade}

@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import * as enums from '../../utils/enums/tarefa'
+import * as enums from '../../utils/enums/contato'
 
 type FiltroState = {
   termo?: string

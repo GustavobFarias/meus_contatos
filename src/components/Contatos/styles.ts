@@ -10,11 +10,10 @@ type TagProps = {
 
 function retornaCorDeFundo(props: TagProps): string {
   if ('status' in props) {
-    if (props.status === 'pendente') return variaveis.amarelo
-    if (props.status === 'concluída') return variaveis.verde
+    if (props.status === 'favorito') return variaveis.amarelo
   } else if ('prioridade' in props) {
-    if (props.prioridade === 'urgente') return variaveis.vermelho
-    if (props.prioridade === 'importante') return variaveis.amarelo2
+    if (props.prioridade === 'amigos') return variaveis.verde
+    if (props.prioridade === 'trabalho') return variaveis.verde
   }
   return '#ccc'
 }
@@ -50,10 +49,9 @@ export const Tag = styled.span<TagProps>`
   display: inline-block;
 `
 
-export const Descricao = styled.textarea`
+export const contas = styled.textarea`
   color: #8b8b8b;
   font-size: 14px;
-  line-height: 24px;
   font-family: 'Reboto Mono', monospace;
   display: block;
   width: 100%;
@@ -62,6 +60,7 @@ export const Descricao = styled.textarea`
   resize: none;
   border: none;
   background-color: transparent;
+  border-bottom: 1px solid #ccc;
 `
 
 export const BarraAcoes = styled.div`
@@ -71,4 +70,30 @@ export const BarraAcoes = styled.div`
 
 export const BotaoCancelarRemover = styled(Botao)`
   background-color: ${variaveis.vermelho};
+`
+
+export const Input = styled.input`
+  width: 0;
+  color: blue;
+`
+
+export const IconeContainer = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+
+  svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: fill 0.3s ease;
+  }
+
+  input:checked + svg path {
+    fill: ${variaveis.amarelo};
+  }
 `

@@ -6,8 +6,9 @@ import { RootReducer } from '../../store'
 import { alterarTermo } from '../../store/reducers/filtro'
 
 import * as S from './styles'
-import * as enums from '../../utils/enums/tarefa'
+import * as enums from '../../utils/enums/contato'
 import { Botao, Campo } from '../../styles'
+import BotaoAdicionar from '../../components/BotaoAdicionar'
 
 type Props = {
   mostrarFiltros: boolean
@@ -25,41 +26,27 @@ const BarraLateral = ({ mostrarFiltros }: Props) => {
           <>
             <Campo
               type="text"
-              placeholder="Buscar"
+              placeholder="Busca de contato"
               value={termo}
               onChange={(evento) => dispatch(alterarTermo(evento.target.value))}
             />
             <S.Filtros>
               <FiltroCard
-                valor={enums.Status.PENDENTE}
+                valor={enums.Status.FAVORITO}
                 criterio="status"
-                legenda="pendentes"
+                legenda="favoritos"
               />
               <FiltroCard
-                valor={enums.Status.CONCLUIDA}
-                criterio="status"
-                legenda="concluídas"
-              />
-              <FiltroCard
-                valor={enums.Prioridade.URGENTE}
-                criterio="prioridade"
-                legenda="urgentes"
-              />
-              <FiltroCard
-                valor={enums.Prioridade.IMPORTANTE}
-                criterio="prioridade"
-                legenda="importantes"
-              />
-              <FiltroCard
-                valor={enums.Prioridade.NORMAL}
+                valor={enums.Prioridade.AMIGOS}
                 criterio="prioridade"
                 legenda="normal"
               />
               <FiltroCard criterio="todas" legenda="todas" />
             </S.Filtros>
+            <BotaoAdicionar />
           </>
         ) : (
-          <Botao onClick={() => navigate('/')}>Volta a lista de tarefas</Botao>
+          <Botao onClick={() => navigate('/')}>Voltar aos contatos</Botao>
         )}
       </div>
     </S.Aside>
