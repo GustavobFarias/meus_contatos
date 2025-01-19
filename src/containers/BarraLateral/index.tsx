@@ -37,8 +37,8 @@ const BarraLateral = ({ mostrarFiltros }: Props) => {
                 legenda="favoritos"
               />
               <FiltroCard
-                valor={enums.Prioridade.AMIGOS}
-                criterio="prioridade"
+                valor={enums.Status.NORMAL}
+                criterio="status"
                 legenda="normal"
               />
               <FiltroCard criterio="todas" legenda="todas" />
